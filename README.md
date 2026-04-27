@@ -1,4 +1,4 @@
->> ##**DATABRICKS DATA LAKEHOUSE**
+## **DATABRICKS DATA LAKEHOUSE**
 
 Projeto de Engenharia de Dados, a fim de preparar base de dados para o consumidor final (Analista de Dados/BI).
 
