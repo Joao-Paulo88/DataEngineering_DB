@@ -6,7 +6,7 @@ Realizado na plataforma Databricks, consiste na implementação de um pipeline d
 
 ---
 
-###**Arquitetura do Projeto:**
+### **Arquitetura do Projeto:**
 
 Volume (CSV) -> Bronze (Raw Data) -> Silver (Dados Tratados) -> Gold (Dados Agregados / Analíticos)
 
