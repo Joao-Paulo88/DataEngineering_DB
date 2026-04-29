@@ -38,6 +38,8 @@ Volume (CSV) -> Bronze (Raw Data) -> Silver (Dados Tratados) -> Gold (Dados Agre
 
   Modelagem Multidimensional (Star Schema)
 
+  OBT
+
   Agregações
 
   Métricas de negócio
@@ -50,7 +52,7 @@ Volume (CSV) -> Bronze (Raw Data) -> Silver (Dados Tratados) -> Gold (Dados Agre
 
 **Modelo Star Schema - Camada Gold**
 
-```
+
                     ┌─────────────────────┐
                     │   tb_dim_tempo      │
                     │─────────────────────│
@@ -110,7 +112,11 @@ Volume (CSV) -> Bronze (Raw Data) -> Silver (Dados Tratados) -> Gold (Dados Agre
                     │ loja_nome           │
                     │ grupo_loja          │
                     └─────────────────────┘
-```
+
+
+**Criação da OneBigTable a partir do Star Schema**
+
+A OneBigTable é criada realizando joins entre a tabela fato (`tb_fato_vendas`) e todas as tabelas dimensão, consolidando todas as informações em uma única tabela para facilitar análises exploratórias e consultas.
 
 **Tecnologias utilizadas:**
 
@@ -125,28 +131,29 @@ Data Warehouse - Modelagem Multidimensional - SCD - Data Lake - Data Lakehouse -
 ### **Estrutura do Repositório**
 
 ```
+
 vendas_pecas_etl/
 │
 ├── README.md                          # Documentação do projeto
 │
 ├── src/                               # Código fonte do projeto
 │   │
-│   ├── BRONZE/                       # Camada Bronze - Ingestão de dados brutos
-│   │   ├── Bronze_PySpark.ipynb        # Implementação em PySpark
-│   │   ├── Bronze_SQL.ipynb            # Implementação em SQL
+│   ├── BRONZE/                        # Camada Bronze - Ingestão de dados brutos
+│   │   ├── Bonze_SQL.ipynb             # Implementação em SQL
 │   │   └── Mover_arquivos.ipynb        # Utilitário para mover arquivos processados
 │   │
 │   ├── SILVER/                       # Camada Silver - Limpeza e transformação
-│   │   ├── Camada_Silver.ipynb         # Implementação em PySpark
-│   │   └── Silver_SQL.ipynb            # Implementação em SQL
+│   │   └── Silver_SQL.ipynb           # Implementação em SQL
 │   │
-│   └── GOLD/                         # Camada Gold - Agregações e modelagem
-│       ├── Gold_PySpark.ipynb          # Implementação em PySpark
-│       └── Gold_SQL.ipynb              # Implementação em SQL
+│   └── GOLD/                          # Camada Gold - Agregações e modelagem
+│       ├── Gols_ST.ipynb               # Star Schema e Análises
+│       └── Gold_OBT.ipynb              # One Big Table
 │
 └── utils/                             # Funções utilitárias
-    └── defs.py                         # Definições e funções auxiliares
+    └── defs.py                            # Definições e funções auxiliares
+
 ```
+
 ---
 
 ### **Plano de Execução**
@@ -157,25 +164,26 @@ O fluxo inicia quando um arquivo CSV é disponibilizado no Volume de ingestão (
 
 Recebimento do CSV no diretório
 
-        ↓
+↓
 
 Execução do Job
 
-        ↓
+↓
 
 Task 1 — Bronze (Ingestão)
 
-        ↓
+↓
 
 Task 2 — Silver (Transformação)
 
-        ↓
+↓
 
 Task 3 — Mover Arquivos (Controle operacional)
 
-        ↓
+↓
 
 Task 4 — Gold (Agregação)
 
-        ↓
+↓
+
 Dashboards (Camada de Consumo)
