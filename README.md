@@ -2,7 +2,7 @@
 
 Projeto de Engenharia de Dados, a fim de preparar base de dados para o consumidor final (Analista de Dados/BI).
 
-Realizado na plataforma Databricks, consiste na implementação de um pipeline de ETL responsável por ingerir arquivos no formato CSV armazenados em um Volume, processá-los através da arquitetura medalhão (Bronze, Silver e Gold) e disponibilizar dados confiáveis para consumo analítico. 
+Realizado na plataforma Databricks, consiste na implementação de um pipeline de ELT responsável por ingerir arquivos no formato CSV armazenados em um Volume, processá-los através da arquitetura medalhão (Bronze, Silver e Gold) e disponibilizar dados confiáveis para consumo analítico. 
 
 ---
 
