@@ -146,7 +146,8 @@ vendas_pecas_etl/
 │   │   └── Silver_SQL.ipynb           # Implementação em SQL
 │   │
 │   └── GOLD/                          # Camada Gold - Agregações e modelagem
-│       ├── Gols_ST.ipynb               # Star Schema e Análises
+│       ├── Consultas_Analiticas.ipynb  # Análises
+│       ├── Gold_ST.ipynb               # Star Schema
 │       └── Gold_OBT.ipynb              # One Big Table
 │
 └── utils/                             # Funções utilitárias
@@ -178,11 +179,11 @@ Task 2 — Silver (Transformação)
 
 ↓
 
-Task 3 — Mover Arquivos (Controle operacional)
+Task 3 — Gold (Agregação)
 
 ↓
 
-Task 4 — Gold (Agregação)
+Task 4 — Mover Arquivos (Controle operacional)
 
 ↓
 
